@@ -141,7 +141,8 @@ body {
 }
 
 .dex-analytics-screen {
-  background: var(--dex-screen-bg);
+  background-color: var(--dex-screen-bg);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.2) 2px, rgba(0,0,0,0.2) 4px);
   border: 4px solid var(--dex-border);
   border-radius: 6px;
   flex: 1;
