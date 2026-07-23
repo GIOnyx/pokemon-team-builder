@@ -78,7 +78,7 @@ const TeamGrid = ({ team, onRemove, onEmptyClick, onHover, onClick, selectedPoke
                       backgroundColor: typeColors[type] || '#777', 
                       color: '#FFF',
                       fontSize: '0.55rem', 
-                      padding: '0.15rem 0.25rem 0.1rem', 
+                      padding: '0.25rem 0.25rem 0.05rem', 
                       borderRadius: '4px',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
