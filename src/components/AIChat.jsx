@@ -248,7 +248,7 @@ const AIChat = ({ team }) => {
                 background: msg.role === 'user' ? 'var(--led-blue)' : '#FFF', color: '#fff',
                 border: '2px solid var(--dex-border)', overflow: 'hidden'
               }}>
-                {msg.role === 'user' ? <User size={14} /> : <img src="https://archives.bulbagarden.net/media/upload/3/3c/Rotom_Pok%C3%A9dex.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
+                {msg.role === 'user' ? <User size={14} /> : <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
               </div>
               
               <div style={{ 
@@ -283,7 +283,7 @@ const AIChat = ({ team }) => {
         {loading && (
           <div ref={loadingRef} style={{ display: 'flex', gap: '0.5rem', maxWidth: '90%' }}>
             <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFF', color: '#fff', border: '2px solid var(--dex-border)', overflow: 'hidden' }}>
-              <img src="https://archives.bulbagarden.net/media/upload/3/3c/Rotom_Pok%C3%A9dex.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ padding: '0.75rem', background: '#FFF', border: '2px solid var(--dex-border)', display: 'flex', alignItems: 'center', gap: '0.5rem', boxShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
               <Loader2 className="animate-spin" size={16} color="var(--dex-border)" />
