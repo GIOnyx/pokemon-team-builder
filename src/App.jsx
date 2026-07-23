@@ -16,9 +16,23 @@ function App() {
 
   const handleAddPokemon = (pokemon) => {
     if (pokemon.cry && !isMuted) {
-      const audio = new Audio(pokemon.cry);
-      audio.volume = 0.3;
-      audio.play().catch(e => console.log("Audio play failed:", e));
+      const cryAudio = new Audio(pokemon.cry);
+      cryAudio.volume = 0.3;
+      
+      const bgMusic = document.getElementById('bg-music');
+      if (bgMusic) {
+        // Fade out
+        bgMusic.volume = 0.1;
+      }
+
+      cryAudio.onended = () => {
+        if (bgMusic) {
+          // Fade back in
+          bgMusic.volume = 0.5;
+        }
+      };
+
+      cryAudio.play().catch(e => console.log("Audio play failed:", e));
     }
 
     setTeam(prevTeam => {
