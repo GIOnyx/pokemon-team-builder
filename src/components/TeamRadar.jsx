@@ -6,12 +6,12 @@ const TeamRadar = ({ team }) => {
     const activePokemon = team.filter(p => p !== null);
     if (activePokemon.length === 0) {
       return [
-        { subject: 'HP', A: 0, fullMark: 150 },
-        { subject: 'Atk', A: 0, fullMark: 150 },
-        { subject: 'Def', A: 0, fullMark: 150 },
-        { subject: 'SpA', A: 0, fullMark: 150 },
-        { subject: 'SpD', A: 0, fullMark: 150 },
-        { subject: 'Spe', A: 0, fullMark: 150 },
+        { subject: 'HP 0', A: 0, fullMark: 150 },
+        { subject: 'Atk 0', A: 0, fullMark: 150 },
+        { subject: 'Def 0', A: 0, fullMark: 150 },
+        { subject: 'SpA 0', A: 0, fullMark: 150 },
+        { subject: 'SpD 0', A: 0, fullMark: 150 },
+        { subject: 'Spe 0', A: 0, fullMark: 150 },
       ];
     }
 
@@ -29,12 +29,12 @@ const TeamRadar = ({ team }) => {
 
     const count = activePokemon.length;
     return [
-      { subject: 'HP', A: Math.round(totals.hp / count), fullMark: 150 },
-      { subject: 'Atk', A: Math.round(totals.attack / count), fullMark: 150 },
-      { subject: 'Def', A: Math.round(totals.defense / count), fullMark: 150 },
-      { subject: 'SpA', A: Math.round(totals['special-attack'] / count), fullMark: 150 },
-      { subject: 'SpD', A: Math.round(totals['special-defense'] / count), fullMark: 150 },
-      { subject: 'Spe', A: Math.round(totals.speed / count), fullMark: 150 },
+      { subject: `HP ${Math.round(totals.hp / count)}`, A: Math.round(totals.hp / count), fullMark: 150 },
+      { subject: `Atk ${Math.round(totals.attack / count)}`, A: Math.round(totals.attack / count), fullMark: 150 },
+      { subject: `Def ${Math.round(totals.defense / count)}`, A: Math.round(totals.defense / count), fullMark: 150 },
+      { subject: `SpA ${Math.round(totals['special-attack'] / count)}`, A: Math.round(totals['special-attack'] / count), fullMark: 150 },
+      { subject: `SpD ${Math.round(totals['special-defense'] / count)}`, A: Math.round(totals['special-defense'] / count), fullMark: 150 },
+      { subject: `Spe ${Math.round(totals.speed / count)}`, A: Math.round(totals.speed / count), fullMark: 150 },
     ];
   }, [team]);
 
