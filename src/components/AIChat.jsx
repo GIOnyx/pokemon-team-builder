@@ -117,14 +117,44 @@ const AIChat = ({ team }) => {
                 <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.5rem', background: 'var(--dex-grey)', border: '2px solid var(--dex-dark-grey)' }}>
                   <img src={pokemon.sprite} alt={pokemon.name} style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
                   <span style={{ textTransform: 'uppercase', fontWeight: 'bold', fontSize: '0.85rem', marginTop: '0.25rem', color: '#111' }}>{pokemon.name}</span>
-                  <div style={{ display: 'flex', gap: '0.15rem', marginTop: '0.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <div style={{ display: 'flex', gap: '0.2rem', marginTop: '0.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {pokemon.types.map(type => (
-                      <span key={type} style={{ backgroundColor: typeColors[type] || '#777', color: '#fff', fontSize: '0.55rem', padding: '0.1rem 0.2rem', borderRadius: '2px', textTransform: 'uppercase', fontWeight: 'bold', border: '1px solid #000' }}>
+                      <span key={type} style={{ 
+                        backgroundColor: typeColors[type] || '#777', 
+                        color: '#fff', 
+                        fontSize: '0.55rem', 
+                        padding: '0.15rem 0.25rem 0.1rem', 
+                        borderRadius: '2px', 
+                        textTransform: 'uppercase', 
+                        letterSpacing: '1px',
+                        fontWeight: 'bold', 
+                        border: '1px solid var(--dex-dark-grey)',
+                        textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        lineHeight: 1
+                      }}>
                         {type}
                       </span>
                     ))}
                     {pokemon.tera_type && (
-                      <span title="Tera Type" style={{ backgroundColor: '#fff', color: typeColors[pokemon.tera_type.toLowerCase()] || '#111', fontSize: '0.55rem', padding: '0.1rem 0.2rem', borderRadius: '2px', textTransform: 'uppercase', fontWeight: 'bold', border: '1px solid #000', display: 'flex', alignItems: 'center', gap: '2px' }}>
+                      <span title="Tera Type" style={{ 
+                        backgroundColor: '#fff', 
+                        color: typeColors[pokemon.tera_type.toLowerCase()] || '#111', 
+                        fontSize: '0.55rem', 
+                        padding: '0.15rem 0.25rem 0.1rem', 
+                        borderRadius: '2px', 
+                        textTransform: 'uppercase', 
+                        letterSpacing: '1px',
+                        fontWeight: 'bold', 
+                        border: '1px solid var(--dex-dark-grey)', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        gap: '2px',
+                        lineHeight: 1
+                      }}>
                         💎 {pokemon.tera_type}
                       </span>
                     )}

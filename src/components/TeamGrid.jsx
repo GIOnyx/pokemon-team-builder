@@ -78,13 +78,17 @@ const TeamGrid = ({ team, onRemove, onEmptyClick, onHover, onClick, selectedPoke
                       backgroundColor: typeColors[type] || '#777', 
                       color: '#FFF',
                       fontSize: '0.55rem', 
-                      padding: '0.1rem 0.2rem', 
+                      padding: '0.15rem 0.25rem 0.1rem', 
                       borderRadius: '4px',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
                       fontWeight: 'bold',
                       border: '1px solid var(--dex-dark-grey)',
-                      textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000'
+                      textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      lineHeight: 1
                     }}
                   >
                     {type}

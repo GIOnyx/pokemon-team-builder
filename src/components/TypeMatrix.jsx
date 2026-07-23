@@ -107,8 +107,12 @@ const TypeMatrix = ({ team }) => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <span style={{ 
                   backgroundColor: typeColors[data.type], 
-                  color: '#FFF', padding: '0.1rem 0.3rem', borderRadius: '3px', textTransform: 'uppercase', letterSpacing: '1px', minWidth: '45px', textAlign: 'center', fontWeight: 'bold',
-                  textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000'
+                  color: '#FFF', padding: '0.15rem 0.3rem 0.1rem', borderRadius: '3px', textTransform: 'uppercase', letterSpacing: '1px', minWidth: '45px', textAlign: 'center', fontWeight: 'bold',
+                  textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  lineHeight: 1
                 }}>
                   {data.type}
                 </span>
@@ -138,8 +142,12 @@ const TypeMatrix = ({ team }) => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <span style={{ 
                   backgroundColor: typeColors[data.type], 
-                  color: '#FFF', padding: '0.1rem 0.3rem', borderRadius: '3px', textTransform: 'uppercase', letterSpacing: '1px', minWidth: '45px', textAlign: 'center', fontWeight: 'bold',
-                  textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000'
+                  color: '#FFF', padding: '0.15rem 0.3rem 0.1rem', borderRadius: '3px', textTransform: 'uppercase', letterSpacing: '1px', minWidth: '45px', textAlign: 'center', fontWeight: 'bold',
+                  textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  lineHeight: 1
                 }}>
                   {data.type}
                 </span>
