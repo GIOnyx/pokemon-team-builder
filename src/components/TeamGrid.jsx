@@ -41,9 +41,9 @@ const TeamGrid = ({ team, onRemove, onEmptyClick, onHover, onClick, selectedPoke
             justifyContent: 'center',
             padding: '0.25rem',
             background: 'var(--dex-grey)',
-            border: selectedPokemon === pokemon ? '2px solid var(--led-green)' : '2px solid var(--dex-dark-grey)',
+            border: (pokemon && selectedPokemon === pokemon) ? '2px solid var(--led-green)' : '2px solid var(--dex-dark-grey)',
             borderRadius: '6px',
-            boxShadow: selectedPokemon === pokemon ? '0 0 10px var(--led-green)' : '2px 2px 0 rgba(0,0,0,0.1)',
+            boxShadow: (pokemon && selectedPokemon === pokemon) ? '0 0 10px var(--led-green)' : '2px 2px 0 rgba(0,0,0,0.1)',
             cursor: pokemon ? 'pointer' : 'default',
             animationDelay: `${index * 0.1}s`
           }}
