@@ -10,6 +10,8 @@ function App() {
   // Initialize team with 6 null slots
   const [team, setTeam] = useState(Array(6).fill(null));
   const [isMuted, setIsMuted] = useState(false);
+  const [hoveredPokemon, setHoveredPokemon] = useState(null);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
   const searchRef = useRef(null);
 
   const handleAddPokemon = (pokemon) => {
@@ -31,6 +33,9 @@ function App() {
 
   const handleRemovePokemon = (index) => {
     setTeam(prevTeam => {
+      const removed = prevTeam[index];
+      if (selectedPokemon === removed) setSelectedPokemon(null);
+      if (hoveredPokemon === removed) setHoveredPokemon(null);
       const filtered = prevTeam.filter((p, i) => p !== null && i !== index);
       while (filtered.length < 6) {
         filtered.push(null);
@@ -95,16 +100,23 @@ function App() {
             <h2 style={{ textAlign: 'center', marginBottom: '0.5rem', color: '#FFF', textShadow: '2px 2px 0 var(--dex-red)', textTransform: 'uppercase' }}>
               My Team
             </h2>
-            <TeamGrid team={team} onRemove={handleRemovePokemon} onEmptyClick={handleEmptyClick} />
+            <TeamGrid 
+              team={team} 
+              onRemove={handleRemovePokemon} 
+              onEmptyClick={handleEmptyClick}
+              onHover={setHoveredPokemon}
+              onClick={(p) => setSelectedPokemon(prev => prev === p ? null : p)}
+              selectedPokemon={selectedPokemon}
+            />
           </div>
           
           {/* Analytics Modules in Separate Screens */}
           <div style={{ display: 'flex', gap: '0.5rem', width: '100%', marginTop: '0.5rem', flex: 1, minHeight: 0 }}>
             <div className="dex-analytics-screen">
-              <TeamRadar team={team} />
+              <TeamRadar team={selectedPokemon || hoveredPokemon ? [selectedPokemon || hoveredPokemon] : team} />
             </div>
             <div className="dex-analytics-screen">
-              <TypeMatrix team={team} />
+              <TypeMatrix team={selectedPokemon || hoveredPokemon ? [selectedPokemon || hoveredPokemon] : team} />
             </div>
           </div>
           

@@ -22,13 +22,16 @@ const typeColors = {
   fairy: 'var(--type-fairy)',
 };
 
-const TeamGrid = ({ team, onRemove, onEmptyClick }) => {
+const TeamGrid = ({ team, onRemove, onEmptyClick, onHover, onClick, selectedPokemon }) => {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', width: '100%', marginBottom: '1rem' }}>
       {team.map((pokemon, index) => (
         <div 
           key={index} 
-          className="animate-fade-in team-slot" 
+          className="animate-fade-in team-slot"
+          onMouseEnter={() => pokemon && onHover && onHover(pokemon)}
+          onMouseLeave={() => onHover && onHover(null)}
+          onClick={() => pokemon && onClick && onClick(pokemon)} 
           style={{ 
             position: 'relative', 
             height: '100px', 
@@ -38,16 +41,17 @@ const TeamGrid = ({ team, onRemove, onEmptyClick }) => {
             justifyContent: 'center',
             padding: '0.25rem',
             background: 'var(--dex-grey)',
-            border: '2px solid var(--dex-dark-grey)',
+            border: selectedPokemon === pokemon ? '2px solid var(--led-green)' : '2px solid var(--dex-dark-grey)',
             borderRadius: '6px',
-            boxShadow: '2px 2px 0 rgba(0,0,0,0.1)',
+            boxShadow: selectedPokemon === pokemon ? '0 0 10px var(--led-green)' : '2px 2px 0 rgba(0,0,0,0.1)',
+            cursor: pokemon ? 'pointer' : 'default',
             animationDelay: `${index * 0.1}s`
           }}
         >
           {pokemon ? (
             <>
               <button 
-                onClick={() => onRemove(index)}
+                onClick={(e) => { e.stopPropagation(); onRemove(index); }}
                 style={{ 
                   position: 'absolute', 
                   top: '0.15rem', 
