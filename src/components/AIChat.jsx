@@ -190,11 +190,11 @@ const AIChat = ({ team }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
       {/* Header */}
-      <div style={{ padding: '0.5rem', borderBottom: '2px solid var(--dex-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ padding: '0.5rem', borderBottom: '2px solid #3b4248', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', margin: 0, color: '#FFF', textTransform: 'uppercase' }}>
           Rotom Link
         </h2>
-        <button onClick={handleReset} style={{ padding: '0.25rem 0.5rem', fontSize: '0.7rem' }}>
+        <button onClick={handleReset} style={{ padding: '0.25rem 0.5rem', fontSize: '0.7rem', background: 'var(--dex-red)', border: '2px solid #FFF', color: '#FFF', fontWeight: 'bold', cursor: 'pointer' }}>
           Reset
         </button>
       </div>
@@ -215,9 +215,9 @@ const AIChat = ({ team }) => {
               <div style={{ 
                 width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                 background: msg.role === 'user' ? 'var(--led-blue)' : 'var(--led-red)', color: '#fff',
-                border: '2px solid var(--dex-border)'
+                border: '2px solid var(--dex-border)', overflow: 'hidden'
               }}>
-                {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
+                {msg.role === 'user' ? <User size={14} /> : <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.8)' }} />}
               </div>
               
               <div style={{ 
@@ -231,14 +231,15 @@ const AIChat = ({ team }) => {
                 boxShadow: '2px 2px 0 rgba(0,0,0,0.5)'
               }}>
                 {msg.content.trim() && (
-                  <ReactMarkdown
-                    components={{
-                      p: ({node, ...props}) => <p style={{ margin: '0 0 0.5rem 0' }} {...props} />,
-                      ul: ({node, ...props}) => <ul style={{ margin: '0 0 0.5rem 1.2rem' }} {...props} />,
-                      li: ({node, ...props}) => <li style={{ marginBottom: '0.2rem' }} {...props} />,
-                      strong: ({node, ...props}) => <strong style={{ color: 'var(--dex-dark-red)' }} {...props} />
-                    }}
-                  >
+                    <ReactMarkdown
+                      components={{
+                        p: ({node, ...props}) => <p style={{ margin: '0 0 0.5rem 0' }} {...props} />,
+                        ul: ({node, ...props}) => <ul style={{ margin: '0 0 0.5rem 1.5rem', paddingLeft: '0.5rem' }} {...props} />,
+                        ol: ({node, ...props}) => <ol style={{ margin: '0 0 0.5rem 1.5rem', paddingLeft: '0.5rem' }} {...props} />,
+                        li: ({node, ...props}) => <li style={{ marginBottom: '0.2rem', paddingLeft: '0.2rem' }} {...props} />,
+                        strong: ({node, ...props}) => <strong style={{ color: 'var(--dex-dark-red)' }} {...props} />
+                      }}
+                    >
                     {msg.content}
                   </ReactMarkdown>
                 )}
@@ -250,19 +251,19 @@ const AIChat = ({ team }) => {
         )})}
         {loading && (
           <div ref={loadingRef} style={{ display: 'flex', gap: '0.5rem', maxWidth: '90%' }}>
-            <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--led-red)', color: '#fff', border: '2px solid var(--dex-border)' }}>
-              <Bot size={14} />
+            <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--led-red)', color: '#fff', border: '2px solid var(--dex-border)', overflow: 'hidden' }}>
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.8)' }} />
             </div>
             <div style={{ padding: '0.75rem', background: '#FFF', border: '2px solid var(--dex-border)', display: 'flex', alignItems: 'center', gap: '0.5rem', boxShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
               <Loader2 className="animate-spin" size={16} color="var(--dex-border)" />
-              <span style={{ color: 'var(--dex-text)', fontWeight: 'bold', textTransform: 'uppercase', fontSize: '0.8rem' }}>Processing...</span>
+              <span style={{ color: '#111', fontWeight: 'bold', textTransform: 'uppercase', fontSize: '0.8rem' }}>Processing...</span>
             </div>
           </div>
         )}
       </div>
 
       {/* Input Area */}
-      <div style={{ padding: '0.75rem', borderTop: '2px solid var(--dex-border)', display: 'flex', gap: '0.5rem', alignItems: 'flex-end' }}>
+      <div style={{ padding: '0.75rem', borderTop: '2px solid #3b4248', display: 'flex', gap: '0.5rem', alignItems: 'flex-end' }}>
         <textarea 
           value={input}
           onChange={(e) => {
@@ -272,10 +273,10 @@ const AIChat = ({ team }) => {
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault();
-              handleSend();
-              // Reset height after send
-              e.target.style.height = 'auto';
+               e.preventDefault();
+               handleSend();
+               // Reset height after send
+               e.target.style.height = 'auto';
             }
           }}
           placeholder="Consult Rotom..."
@@ -291,7 +292,7 @@ const AIChat = ({ team }) => {
             if (ta) ta.style.height = 'auto';
           }}
           disabled={loading || !input.trim()}
-          style={{ width: '40px', height: '40px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--dex-border)', flexShrink: 0 }}
+          style={{ width: '40px', height: '40px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--dex-border)', flexShrink: 0, background: 'var(--blue-key)', color: '#FFF' }}
         >
           <Send size={16} />
         </button>

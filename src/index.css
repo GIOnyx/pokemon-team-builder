@@ -67,7 +67,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0.75rem;
   border-right: none;
   min-height: 0;
 }
@@ -111,7 +111,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0.75rem;
   position: relative;
   min-height: 0;
 }
@@ -121,7 +121,7 @@ body {
   background: var(--dex-grey);
   border: 4px solid var(--dex-border);
   border-radius: 8px 8px 32px 8px;
-  padding: 1.5rem;
+  padding: 0.75rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -131,28 +131,66 @@ body {
 }
 
 .dex-left-screen {
-  background: var(--dex-screen-bg);
+  background-color: var(--dex-screen-bg);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.2) 2px, rgba(0,0,0,0.2) 4px);
   border: 4px solid var(--dex-border);
   border-radius: 8px;
-  flex: 1;
-  padding: 1rem;
+  padding: 0.75rem;
   overflow-y: auto;
+  min-height: 0;
+}
+
+.dex-analytics-screen {
+  background: var(--dex-screen-bg);
+  border: 4px solid var(--dex-border);
+  border-radius: 6px;
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.7);
+}
+
+.dex-right-bezel {
+  background: var(--dex-grey);
+  border: 4px solid var(--dex-border);
+  border-radius: 8px 8px 8px 32px;
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2);
+  position: relative;
   min-height: 0;
 }
 
 /* Right Panel Inner Elements */
 .dex-right-screen {
-  background: var(--dex-screen-bg);
+  background-color: #15181a;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.2) 2px, rgba(0,0,0,0.2) 4px),
+    linear-gradient(#262a2e 1px, transparent 1px),
+    linear-gradient(90deg, #262a2e 1px, transparent 1px),
+    linear-gradient(#1e2225 1px, transparent 1px),
+    linear-gradient(90deg, #1e2225 1px, transparent 1px);
+  background-size: 100% 4px, 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
   border: 4px solid var(--dex-border);
   border-radius: 8px;
   flex: 1;
   padding: 1rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+/* Hover Animations */
+.team-slot-sprite {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.team-slot:hover .team-slot-sprite {
+  transform: scale(1.15) translateY(-5px);
 }
 
 /* Inputs & Buttons */
@@ -184,3 +222,8 @@ button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #3c8266; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #50a986; }
