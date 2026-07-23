@@ -10,15 +10,16 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <!-- Background Pokemon GBA Soundtrack -->
-    <iframe id="bg-music" src="https://www.youtube.com/embed/M57A7vNq-lY?enablejsapi=1&autoplay=0&loop=1&playlist=M57A7vNq-lY" allow="autoplay" style="display:none" title="Pokemon GBA Soundtrack"></iframe>
+    <audio id="bg-music" src="/littleroot.webm" loop></audio>
     <script>
       let bgMusicPlayed = false;
       document.addEventListener('click', () => {
         if (!bgMusicPlayed) {
           bgMusicPlayed = true;
-          const iframe = document.getElementById('bg-music');
-          if (iframe && iframe.contentWindow) {
-            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          const audio = document.getElementById('bg-music');
+          if (audio) {
+            audio.volume = 0.5;
+            audio.play().catch(e => console.log("Audio play failed:", e));
           }
         }
       }, { once: true });
