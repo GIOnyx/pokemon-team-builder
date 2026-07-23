@@ -223,7 +223,7 @@ const AIChat = ({ team }) => {
       {/* Header */}
       <div style={{ padding: '0.5rem', borderBottom: '2px solid #3b4248', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', margin: 0, color: '#FFF', textTransform: 'uppercase' }}>
-          Rotom Link
+          Rotom Dex
         </h2>
         <button onClick={handleReset} style={{ padding: '0.25rem 0.5rem', fontSize: '0.7rem', background: 'var(--dex-red)', border: '2px solid #FFF', color: '#FFF', fontWeight: 'bold', cursor: 'pointer' }}>
           Reset
@@ -245,10 +245,10 @@ const AIChat = ({ team }) => {
             }}>
               <div style={{ 
                 width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                background: msg.role === 'user' ? 'var(--led-blue)' : 'var(--led-red)', color: '#fff',
+                background: msg.role === 'user' ? 'var(--led-blue)' : '#FFF', color: '#fff',
                 border: '2px solid var(--dex-border)', overflow: 'hidden'
               }}>
-                {msg.role === 'user' ? <User size={14} /> : <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.8)' }} />}
+                {msg.role === 'user' ? <User size={14} /> : <img src="https://archives.bulbagarden.net/media/upload/3/3c/Rotom_Pok%C3%A9dex.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
               </div>
               
               <div style={{ 
@@ -282,8 +282,8 @@ const AIChat = ({ team }) => {
         )})}
         {loading && (
           <div ref={loadingRef} style={{ display: 'flex', gap: '0.5rem', maxWidth: '90%' }}>
-            <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--led-red)', color: '#fff', border: '2px solid var(--dex-border)', overflow: 'hidden' }}>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.8)' }} />
+            <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFF', color: '#fff', border: '2px solid var(--dex-border)', overflow: 'hidden' }}>
+              <img src="https://archives.bulbagarden.net/media/upload/3/3c/Rotom_Pok%C3%A9dex.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ padding: '0.75rem', background: '#FFF', border: '2px solid var(--dex-border)', display: 'flex', alignItems: 'center', gap: '0.5rem', boxShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
               <Loader2 className="animate-spin" size={16} color="var(--dex-border)" />
