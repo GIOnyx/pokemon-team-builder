@@ -244,9 +244,9 @@ const AIChat = ({ team }) => {
               flexDirection: msg.role === 'user' ? 'row-reverse' : 'row'
             }}>
               <div style={{ 
-                width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                background: msg.role === 'user' ? 'var(--led-blue)' : '#FFF', color: '#fff',
-                border: '2px solid var(--dex-border)', overflow: 'hidden'
+                width: msg.role === 'user' ? '24px' : '36px', height: msg.role === 'user' ? '24px' : '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                background: msg.role === 'user' ? 'var(--led-blue)' : 'transparent', color: '#fff',
+                border: msg.role === 'user' ? '2px solid var(--dex-border)' : 'none', overflow: 'visible'
               }}>
                 {msg.role === 'user' ? <User size={14} /> : <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
               </div>
@@ -282,7 +282,7 @@ const AIChat = ({ team }) => {
         )})}
         {loading && (
           <div ref={loadingRef} style={{ display: 'flex', gap: '0.5rem', maxWidth: '90%' }}>
-            <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFF', color: '#fff', border: '2px solid var(--dex-border)', overflow: 'hidden' }}>
+            <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', color: '#fff', border: 'none', overflow: 'visible' }}>
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png" alt="Rotom" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ padding: '0.75rem', background: '#FFF', border: '2px solid var(--dex-border)', display: 'flex', alignItems: 'center', gap: '0.5rem', boxShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
