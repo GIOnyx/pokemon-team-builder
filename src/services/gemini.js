@@ -84,14 +84,14 @@ const fallbackLocalChat = async (prompt) => {
   if (!localChatSession) {
     const ai = new GoogleGenAI({ apiKey: localKey });
     
-    const SYSTEM_PROMPT = \`
-\${COBBLEMON_GEM_INSTRUCTIONS}
+    const SYSTEM_PROMPT = `
+${COBBLEMON_GEM_INSTRUCTIONS}
 
 CRITICAL INSTRUCTION FOR RECOMMENDATIONS:
 Whenever you analyze a team or recommend Pokemon, you MUST output a JSON code block in this exact format alongside your conversational text. Do not hallucinate properties. 
 The "proposed_team" array MUST contain exactly 6 objects (the user's current team members + your recommendations to fill the rest).
 
-\\\`\\\`\\\`json
+\`\`\`json
 {
   "proposed_team": [
     {
@@ -106,9 +106,9 @@ The "proposed_team" array MUST contain exactly 6 objects (the user's current tea
   "weaknesses": ["Vulnerable to fast Ground types", "Lacks speed control"],
   "strategy": "Lead with Blastoise to set up, use Metagross as a physical wall, and sweep with Garchomp."
 }
-\\\`\\\`\\\`
+\`\`\`
 The application will intercept this JSON block and render beautiful visual components. Always include conversational reasoning around the JSON.
-\`;
+`;
 
     localChatSession = ai.chats.create({
       model: 'gemini-3.1-flash-lite',
